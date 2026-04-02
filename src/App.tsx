@@ -50,9 +50,6 @@ const Navbar = () => {
     )}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-linear-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center neon-glow car-highlight">
-            <Sparkles className="text-white w-6 h-6" />
-          </div>
           <span className="text-2xl font-bold tracking-tighter">
             SHINE<span className="text-primary drop-shadow-[0_0_8px_rgba(225,6,0,0.4)]">TO</span>YOU
           </span>
@@ -71,7 +68,7 @@ const Navbar = () => {
           ))}
           <a 
             href="#contact" 
-            className="px-5 py-2 bg-linear-to-r from-primary to-primary-dark text-white text-sm font-bold rounded-full hover:neon-glow-strong transition-all car-highlight"
+            className="px-5 py-2 bg-primary text-white text-sm font-bold rounded-full hover:neon-glow-strong transition-all car-highlight neon-glow shadow-lg"
           >
             Időpont foglalás
           </a>
@@ -109,7 +106,7 @@ const Navbar = () => {
               <a 
                 href="#contact" 
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full py-3 bg-linear-to-r from-primary to-primary-dark text-white text-center font-bold rounded-xl car-highlight"
+                className="w-full py-3 bg-primary text-white text-center font-bold rounded-xl car-highlight neon-glow shadow-lg"
               >
                 Időpont foglalás
               </a>
@@ -123,7 +120,7 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-12">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -132,9 +129,9 @@ const Hero = () => {
           className="w-full h-full object-cover opacity-50"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-linear-to-b from-background/20 via-background/60 to-background" />
+        <div className="absolute inset-0 bg-linear-to-b from-background/20 via-background/80 to-background" />
         {/* Red Glow Reflection */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 blur-[120px] rounded-full animate-pulse" />
+        <div className="absolute top-1/4 left-1/4 w-64 md:w-96 h-64 md:h-96 bg-primary/20 blur-[80px] md:blur-[120px] rounded-full animate-pulse" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
@@ -143,14 +140,14 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary text-white text-[10px] md:text-xs font-bold tracking-widest uppercase mb-6 shadow-[0_0_15px_rgba(225,6,0,0.3)]">
             Prémium Mobil Autókozmetika
           </span>
-          <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-6 leading-[1.1]">
+          <h1 className="text-4xl sm:text-5xl md:text-8xl font-bold tracking-tight mb-6 leading-[1.1]">
             Autóápolás, ami <br />
             <span className="text-primary italic drop-shadow-[0_0_15px_rgba(225,6,0,0.5)]">házhoz jön.</span>
           </h1>
-          <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-10">
+          <p className="text-base md:text-xl text-white/70 max-w-2xl mx-auto mb-10">
             Vízmentes nanotechnológiás tisztítás Dabas és környékén. 
             Sportautó szintű detailing az Ön otthonában vagy munkahelyén.
           </p>
@@ -158,13 +155,13 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a 
               href="#contact" 
-              className="w-full sm:w-auto px-8 py-4 bg-linear-to-r from-primary to-primary-dark text-white font-bold rounded-2xl hover:neon-glow-strong transition-all flex items-center justify-center gap-2 car-highlight"
+              className="w-full sm:w-auto px-8 py-4 bg-primary text-white font-bold rounded-2xl hover:neon-glow-strong transition-all flex items-center justify-center gap-2 car-highlight neon-glow shadow-lg"
             >
               Időpont foglalás <ChevronRight className="w-5 h-5" />
             </a>
             <a 
               href="https://wa.me/36304330472" 
-              className="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-2xl hover:bg-white/10 transition-all flex items-center justify-center gap-2 backdrop-blur-sm"
+              className="w-full sm:w-auto px-8 py-4 bg-primary text-white font-bold rounded-2xl hover:neon-glow-strong transition-all flex items-center justify-center gap-2 car-highlight neon-glow shadow-lg"
             >
               Írj üzenetet <MessageSquare className="w-5 h-5" />
             </a>
@@ -223,17 +220,26 @@ const Services = () => {
   return (
     <section id="services" className="py-24 px-6 bg-surface">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Szolgáltatásaink</h2>
           <p className="text-white/50 max-w-xl mx-auto">
             Minden részletre kiterjedő figyelem, prémium alapanyagok és professzionális technológia.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => (
             <motion.div 
               key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
               whileHover={{ y: -10 }}
               className="p-8 rounded-3xl bg-white/5 border border-white/5 hover:border-primary/30 hover:bg-primary/5 transition-all group relative overflow-hidden"
             >
@@ -333,14 +339,25 @@ const WhyUs = () => {
     <section id="why-us" className="py-24 px-6 bg-surface-lighter overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
             <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight">
               Miért válassza a <br />
               <span className="text-primary">ShineToYou</span> csapatát?
             </h2>
             <div className="space-y-8">
               {features.map((f, i) => (
-                <div key={i} className="flex gap-6">
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="flex gap-6"
+                >
                   <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary drop-shadow-[0_0_8px_rgba(225,6,0,0.3)]">
                     {f.icon}
                   </div>
@@ -348,11 +365,16 @@ const WhyUs = () => {
                     <h3 className="text-xl font-bold mb-2">{f.title}</h3>
                     <p className="text-white/50 leading-relaxed">{f.desc}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
-          <div className="relative">
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
             <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full opacity-50 animate-pulse" />
             <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border border-white/10">
               <img 
@@ -363,7 +385,7 @@ const WhyUs = () => {
               />
               <div className="absolute inset-0 car-highlight" />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -519,7 +541,7 @@ const Contact = () => {
                 </div>
                 <button 
                   disabled={formStatus === 'submitting'}
-                  className="w-full py-5 bg-linear-to-r from-primary to-primary-dark text-white font-bold rounded-2xl hover:neon-glow-strong transition-all disabled:opacity-50 flex items-center justify-center gap-2 car-highlight"
+                  className="w-full py-5 bg-primary text-white font-bold rounded-2xl hover:neon-glow-strong transition-all disabled:opacity-50 flex items-center justify-center gap-2 car-highlight neon-glow shadow-lg"
                 >
                   {formStatus === 'submitting' ? 'Küldés...' : 'Foglalj időpontot most'}
                   <ArrowRight className="w-5 h-5" />
@@ -538,9 +560,6 @@ const Footer = () => {
     <footer className="py-12 px-6 border-t border-white/5">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-linear-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center car-highlight">
-            <Sparkles className="text-white w-5 h-5" />
-          </div>
           <span className="text-xl font-bold tracking-tighter">
             SHINE<span className="text-primary">TO</span>YOU
           </span>
@@ -560,32 +579,10 @@ const Footer = () => {
   );
 };
 
-const FloatingButtons = () => {
-  return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-4">
-      <motion.a 
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        href="https://wa.me/36304330472"
-        className="w-14 h-14 bg-linear-to-br from-primary to-primary-dark text-white rounded-full flex items-center justify-center shadow-2xl neon-glow car-highlight"
-      >
-        <MessageSquare className="w-7 h-7" />
-      </motion.a>
-      <motion.a 
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        href="tel:+36304330472"
-        className="w-14 h-14 bg-white/10 backdrop-blur-md text-white rounded-full flex items-center justify-center shadow-2xl border border-white/10"
-      >
-        <Phone className="w-7 h-7" />
-      </motion.a>
-    </div>
-  );
-};
 
 export default function App() {
   return (
-    <div className="min-h-screen selection:bg-primary/30">
+    <div className="min-h-screen selection:bg-primary/30 overflow-x-hidden">
       <Navbar />
       <Hero />
       <Services />
@@ -594,7 +591,6 @@ export default function App() {
       <Testimonials />
       <Contact />
       <Footer />
-      <FloatingButtons />
     </div>
   );
 }

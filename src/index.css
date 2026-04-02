@@ -16,6 +16,9 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-white antialiased selection:bg-primary/30 selection:text-primary;
   }
